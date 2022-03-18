@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:text="Створення нового користувача"
+        android:textColor="@color/main"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/editTextTextConfirmPassword"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20sp"
+        android:background="@color/main"
+        android:text="Створити користувача"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_editor_absoluteY="545dp"
+        android:onClick="SignUp"/>
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTextPersonName"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15sp"
+        android:width="250dp"
+        android:backgroundTint="@color/main"
+        android:ems="10"
+        android:hint="Електронна адреса"
+        android:inputType="textEmailAddress"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:hint="Пароль"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:width="250dp"
+        android:ems="10"
+        android:layout_marginTop="15sp"
+        android:layout_below="@id/editTextTextEmailAddress"
+        android:inputType="textPassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="197dp"
+        android:backgroundTint="@color/main"/>
+
+    <EditText
+        android:id="@+id/editTextTextConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTextPassword"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15sp"
+        android:width="250dp"
+        android:backgroundTint="@color/main"
+        android:ems="10"
+        android:hint="Підтвердіть пароль"
+        android:inputType="textPassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="197dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainText"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20sp"
+        android:width="250dp"
+        android:ems="10"
+        android:hint="Ім'я користувача"
+        android:inputType="textPersonName"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="276dp"
+        android:backgroundTint="@color/main"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вже є аккаунт?"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="90sp"
+        android:layout_below="@+id/button"
+        android:id="@+id/labelNoAcc"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ввійти"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="195sp"
+        android:textColor="@color/main"
+        android:layout_below="@+id/button"
+        android:onClick="GoToLogin"/>
+
+</RelativeLayout>

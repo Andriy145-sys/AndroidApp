@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginStart="250sp"
+        android:layout_marginTop="30sp"
+        android:width="100sp"
+        android:background="@color/main"
+        android:onClick="logout"
+        android:text="Вийти"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="20sp"
+        android:id="@+id/userNameView"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="golinskijandrij416@gmail.com"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/silver"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@+id/userNameView"
+        android:id="@+id/userEmailView"/>
+
+    <EditText
+        android:id="@+id/userNameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userEmailView"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="50sp"
+        android:width="300sp"
+        android:backgroundTint="@color/main"
+        android:hint="Електронна адреса"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/userEmailEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userNameEdit"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="20sp"
+        android:width="300sp"
+        android:backgroundTint="@color/main"
+        android:hint="Ім'я користувача"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_below="@+id/userEmailEdit"
+        android:layout_marginStart="110sp"
+        android:layout_marginTop="20sp"
+        android:width="150sp"
+        android:background="@color/main"
+        android:onClick="updateUserData"
+        android:text="Оновити"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/updateBtn"
+        android:text="Змінити пароль"
+        android:textSize="24sp"
+        android:textColor="@color/main"
+        android:textStyle="bold"
+        android:layout_marginStart="90sp"
+        android:layout_marginTop="20sp"
+        android:id="@+id/editPasswordText"
+        />
+    <EditText
+        android:id="@+id/userCurrentPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPasswordText"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="20sp"
+        android:width="300sp"
+        android:backgroundTint="@color/main"
+        android:hint="Старий пароль"
+        android:inputType="textPassword"
+        tools:ignore="TouchTargetSizeCheck" />
+    <EditText
+        android:id="@+id/userNewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userCurrentPassword"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="20sp"
+        android:width="300sp"
+        android:backgroundTint="@color/main"
+        android:hint="Новий пароль"
+        android:inputType="textPassword"
+        tools:ignore="TouchTargetSizeCheck" />
+    <EditText
+        android:id="@+id/userConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userNewPassword"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="20sp"
+        android:width="300sp"
+        android:backgroundTint="@color/main"
+        android:hint="Підтвердіть пароль"
+        android:inputType="textPassword"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/updatePasswordBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_below="@+id/userConfirmPassword"
+        android:layout_marginStart="110sp"
+        android:layout_marginTop="20sp"
+        android:width="150sp"
+        android:background="@color/main"
+        android:onClick="updateUserPassword"
+        android:text="Оновити"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+</RelativeLayout>
