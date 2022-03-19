@@ -30,20 +30,32 @@ public class MainActivity extends AppCompatActivity {
         EditText email = (EditText) findViewById(R.id.editTextTextEmailAddress);
         EditText password = (EditText) findViewById(R.id.editTextTextPassword);
         EditText confirmPassword = (EditText) findViewById(R.id.editTextTextConfirmPassword);
-        if (password.getText().toString().length() < 8) {
-            Toast.makeText(MainActivity.this, "Пароль повинен містити мінімум 8 символів", Toast.LENGTH_SHORT).show();
-        } else {
-            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
-                users.setEmail(email.getText().toString());
-                users.setUserName(username.getText().toString());
-                users.setPassword(password.getText().toString());
 
-                setContentView(R.layout.activity_login);
-                Toast.makeText(MainActivity.this, "Користвача успішно створено", Toast.LENGTH_SHORT).show();
+        //Сheck that all fields are filled
+        if (username.getText().toString().equals("") ||
+                email.getText().toString().equals("") ||
+                password.getText().toString().equals("") ||
+                confirmPassword.getText().toString().equals("")) {
+            Toast.makeText(MainActivity.this, "Будь ласка заповніть всі поля", Toast.LENGTH_SHORT).show();
+        } else {
+            //Check to valid min symbols to password
+            if (password.getText().toString().length() < 8) {
+                Toast.makeText(MainActivity.this, "Пароль повинен містити мінімум 8 символів", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(MainActivity.this, "Паролі не збігаються", Toast.LENGTH_SHORT).show();
+                //Create user
+                if (password.getText().toString().equals(confirmPassword.getText().toString())) {
+                    users.setEmail(email.getText().toString());
+                    users.setUserName(username.getText().toString());
+                    users.setPassword(password.getText().toString());
+
+                    setContentView(R.layout.activity_login);
+                    Toast.makeText(MainActivity.this, "Користвача успішно створено", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Паролі не збігаються", Toast.LENGTH_SHORT).show();
+                }
             }
         }
+
     }
 
     //Login action
@@ -56,16 +68,21 @@ public class MainActivity extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.loginPassword);
         String userEmail = users.getEmail();
         String userPassword = users.getPassword();
-        if (email.getText().toString().equals("") && password.getText().toString().equals("")) {
-            Toast.makeText(MainActivity.this, "Введіть будь ласка дані", Toast.LENGTH_SHORT).show();
+        if (userEmail.equals("")) {
+            Toast.makeText(MainActivity.this, "Ви ще не створили аккаунт", Toast.LENGTH_SHORT).show();
         } else {
-            if (email.getText().toString().equals(userEmail.toString()) && password.getText().toString().equals(userPassword.toString())) {
-                Toast.makeText(MainActivity.this, "Вхід успішно виконано", Toast.LENGTH_SHORT).show();
-                this.GoToProfile(view);
+            if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
+                Toast.makeText(MainActivity.this, "Будь ласка заповніть всі поля", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(MainActivity.this, "Невірно введено емайл або пароль", Toast.LENGTH_SHORT).show();
+                if (email.getText().toString().equals(userEmail.toString()) && password.getText().toString().equals(userPassword.toString())) {
+                    Toast.makeText(MainActivity.this, "Вхід успішно виконано", Toast.LENGTH_SHORT).show();
+                    this.GoToProfile(view);
+                } else {
+                    Toast.makeText(MainActivity.this, "Невірно введено емайл або пароль", Toast.LENGTH_SHORT).show();
+                }
             }
         }
+
     }
 
     //Profile action
@@ -89,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         EditText emailEdit = (EditText) findViewById(R.id.userEmailEdit);
         EditText usernameEdit = (EditText) findViewById(R.id.userNameEdit);
 
+        //Update user data
         users.setUserName(usernameEdit.getText().toString());
         users.setEmail(emailEdit.getText().toString());
 
@@ -101,9 +119,13 @@ public class MainActivity extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.userNewPassword);
         EditText confirmPassword = (EditText) findViewById(R.id.userConfirmPassword);
 
+        //Check to valid old password
         if (oldPassword.equals(currentPassword.getText().toString())) {
-            if (password.getText().toString().length() < 8) {
+            //Check to valid min symbols to password
+            if (password.getText().toString().length() >= 8) {
+                ////Check to valid match password
                 if (password.getText().toString().equals(confirmPassword.getText().toString())) {
+                    //Update password
                     users.setPassword(password.getText().toString());
                     Toast.makeText(MainActivity.this, "Пароль успішно змінено", Toast.LENGTH_SHORT).show();
                 } else {
@@ -112,8 +134,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, "Пароль повинен містити мінімум 8 символів", Toast.LENGTH_SHORT).show();
             }
-        }
-        else{
+        } else {
             Toast.makeText(MainActivity.this, "Старий пароль введено невірно", Toast.LENGTH_SHORT).show();
         }
     }
